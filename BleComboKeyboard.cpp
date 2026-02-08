@@ -213,12 +213,24 @@ void BleComboKeyboard::setCallbacks(BLECharacteristicCallbacks *callbacks) {
 	globalCallbacks=callbacks;
 }
 
+void BleComboKeyboard::setMTU(uint16_t mtu) {
+  _mtu = mtu;
+}
+
+void BleComboKeyboard::setPreferredConnectionParams(uint16_t minPreferred, uint16_t maxPreferred) {
+  _minPreferred = minPreferred;
+  _maxPreferred = maxPreferred;
+}
+
 
 
 
 void BleComboKeyboard::taskServer(void* pvParameter) {
   BleComboKeyboard* bleKeyboardInstance = (BleComboKeyboard *) pvParameter; //static_cast<BleComboKeyboard *>(pvParameter);
   BLEDevice::init(bleKeyboardInstance->deviceName.c_str());
+  if (bleKeyboardInstance->_mtu > 0) {
+    BLEDevice::setMTU(bleKeyboardInstance->_mtu);
+  }
   BLEServer *pServer = BLEDevice::createServer();
   pServer->setCallbacks(bleKeyboardInstance->connectionStatus);
 
@@ -253,7 +265,8 @@ void BleComboKeyboard::taskServer(void* pvParameter) {
 	BLECharacteristic* pCharacteristic = pService->createCharacteristic(
 	"beb5483e-36e1-4688-b7f5-ea07361b26a8",
 		BLECharacteristic::PROPERTY_READ |
-		BLECharacteristic::PROPERTY_WRITE
+		BLECharacteristic::PROPERTY_WRITE |
+		BLECharacteristic::PROPERTY_WRITE_NR
 	);
 
 
@@ -268,7 +281,8 @@ void BleComboKeyboard::taskServer(void* pvParameter) {
   pAdvertising->addServiceUUID(bleKeyboardInstance->hid->hidService()->getUUID());
 	pAdvertising->addServiceUUID(pService->getUUID());
 	pAdvertising->setScanResponse(true);
-	pAdvertising->setMinPreferred(0x06);  
+	pAdvertising->setMinPreferred(bleKeyboardInstance->_minPreferred);
+	pAdvertising->setMaxPreferred(bleKeyboardInstance->_maxPreferred);
   pAdvertising->start();
   bleKeyboardInstance->hid->setBatteryLevel(bleKeyboardInstance->batteryLevel);
 
@@ -580,4 +594,3 @@ size_t BleComboKeyboard::write(const uint8_t *buffer, size_t size) {
 	}
 	return n;
 }
-
