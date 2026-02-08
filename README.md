@@ -129,10 +129,3 @@ TEXT Hello ESP32
 
 ## 联系方式
 - QQ 群：710985269
-
-## 致谢
-本项目基于以下项目的工作实现：
-- [ESP32-BLE-Mouse](https://github.com/T-vK/ESP32-BLE-Mouse)
-- [ESP32-BLE-Keyboard](https://github.com/T-vK/ESP32-BLE-Keyboard)
-- [ESP32-BLE-Abs-Mouse](https://github.com/sobrinho/ESP32-BLE-Abs-Mouse)
-- [ESP32-BLE-Combo](https://github.com/blackketter/ESP32-BLE-Combo)
