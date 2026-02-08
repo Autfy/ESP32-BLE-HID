@@ -17,6 +17,7 @@
 - BLE HID 绝对坐标触控（Android 等设备会将 0~10000 逻辑坐标映射到屏幕）。
 - BLE 双向通信特征值（自定义服务/特征值可读写）。
 - 支持与 Wi-Fi 并行工作（BLE HID 与联网验证示例）。
+- 已完成：自定义指令协议、Write Without Response/MTU/连接参数优化、滑动轨迹插值算法、坐标偏移校正。
 
 ## 接口说明（核心）
 ### BleComboKeyboard
