@@ -95,6 +95,9 @@ private:
   BLECharacteristic* inputKeyboard;
   BLECharacteristic* outputKeyboard;
   BLECharacteristic* inputMediaKeys;
+  uint16_t _mtu = 0;
+  uint16_t _minPreferred = 0x06;
+  uint16_t _maxPreferred = 0x12;
   
   KeyReport _keyReport;
   MediaKeyReport _mediaKeyReport;
@@ -114,6 +117,8 @@ public:
   size_t write(const MediaKeyReport c);
   size_t write(const uint8_t *buffer, size_t size);
   void setCallbacks(BLECharacteristicCallbacks *callbacks);
+  void setMTU(uint16_t mtu);
+  void setPreferredConnectionParams(uint16_t minPreferred, uint16_t maxPreferred);
   
   void releaseAll(void);
   bool isConnected(void);
