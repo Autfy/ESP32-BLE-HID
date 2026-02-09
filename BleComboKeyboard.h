@@ -128,6 +128,7 @@ public:
   std::string deviceName;
 
   BLECharacteristic* inputMouse;
+  BLECharacteristic* inputRELMouse;
 
 };
 

@@ -4,6 +4,16 @@
 ## 项目说明
 本项目为独立维护版本，与原先项目无从属或关联关系，功能与路线由本项目自行规划与实现。
 
+## Contact Me
+- QQ群: 710985269
+- QQ: 3560000009
+- 如果需要技术支持可以联系我，提供0基础HIDEsp32开发版制作视频课程并提供封装好的案例包含滑动、点击、home、back按键和android通信app的开发，无需学习也可以直接使用课程案例来实现android平台的免root、无障碍、adb的自动化测试脚本开发。
+- [HID课程介绍](https://mp.weixin.qq.com/s/IlLELe8EDxnfZWq-d5tzzQ)
+
+## Installation
+- In the Arduino IDE go to "Sketch" -> "Include Library" -> "Add .ZIP Library..." and select the file you just downloaded.
+- You can now go to "File" -> "Examples" -> "ESP32 BLE HID" and select any of the examples to get started.
+
 ## 硬件兼容
 - ESP32（经典双核）
 - ESP32-C3
@@ -129,3 +139,11 @@ TEXT Hello ESP32
 ## 注意事项
 - 本库仅供学习使用，请勿用于非法用途，否则后果自负。
 - 用户明确理解并同意，任何违反法律法规、侵犯他人合法权益的行为，均与本项目及其开发者无关，后果由用户自行承担。
+codex/esp32hid-qt37jy
+
+## Credits
+This project is heavily based on their work:
+- [ESP32-BLE-Mouse](https://github.com/T-vK/ESP32-BLE-Mouse)
+- [ESP32-BLE-Keyboard](https://github.com/T-vK/ESP32-BLE-Keyboard)
+- [ESP32-BLE-Abs-Mouse](https://github.com/sobrinho/ESP32-BLE-Abs-Mouse)
+- [ESP32-BLE-Combo](https://github.com/blackketter/ESP32-BLE-Combo)
